@@ -13,7 +13,7 @@ public class library {
 
         // Task 4: Create two or more Book objects with different attributes.
         // Task 5: Call the displayDetails method for each object.
-    }
+    }      
 }
 
 
