@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 public class Main {
     public static void main(String[] args) {
 
+        //frame
         JFrame frame = new JFrame("Inventory Manager");
         frame.setSize(750, 820);
         frame.setLayout(new GridLayout(3, 1));
@@ -77,8 +78,13 @@ public class Main {
                     double prices = Double.parseDouble(price.getText());
                     int quantities = Integer.parseInt(quantity.getText());
                     Product p1 = new Product(name.getText(), prices, quantities);
-                    i1.addProduct(p1, display);
-                    display.setText("Product Added");
+                    if(product >= 0 && quantities >= 0){
+                        i1.addProduct(p1, display);
+                        display.setText("Product Added");
+                    }
+                    else{
+                        display.setText("Prices and quantity cannot be negative");
+                }
 
             }
         });
@@ -96,7 +102,7 @@ public class Main {
                     int quantities = Integer.parseInt(quantity.getText());
                     Product p1 = new Product(name.getText(), prices, quantities);
 
-                    if (quantities >= 0 || prices >= 0) {
+                    if (quantities >= 0 && prices >= 0) {
                         i1.updateProduct(p1, display);
                         display.setText("Product updated");
                     }
